@@ -1,0 +1,17 @@
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
+cc_library(
+    name = "trie",
+    hdrs = ["trie.h"],
+    include_prefix = "reinstall/trie",
+    visibility = ["//visibility:public"]
+)
+
+cc_test(
+    name = "trie-test",
+    srcs = ["trie_test.cc"],
+    deps = [
+        ":trie",
+        "@com_google_googletest//:gtest_main",
+    ],
+)

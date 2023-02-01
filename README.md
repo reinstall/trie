@@ -1,2 +1,3 @@
 # trie
-Cpp trie template
+
+Not thread safe trie c++ template implementation
