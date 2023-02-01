@@ -267,6 +267,10 @@ std::vector<T> Trie<T>::findSeries_(const Node<T> *node, std::string key) {
         }
     }
 
+    if (key.size() < node->key.size()) {
+      return result;
+    }
+
     key.erase(0, prefix_size);
     if (key.empty()) {
         return result;

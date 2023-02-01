@@ -29,8 +29,6 @@ TEST(TrieTest, Find) {
     t.insert("abcde-", 8);
     t.insert("a", 9);
 
-    t.printTraverse(std::cout);
-
     auto r1 = t.find("-");
     EXPECT_FALSE(r1.second);
     EXPECT_EQ(r1.first, 0);
@@ -72,6 +70,7 @@ TEST(TrieTest, FindSeries) {
     t.insert("abcde", 7);
     t.insert("abcde-", 8);
     t.insert("a", 9);
+    t.insert("abcde-fghik-p", 10);
 
     auto r1 = t.findSeries("-");
     EXPECT_EQ(r1.size(), 0);
@@ -105,4 +104,10 @@ TEST(TrieTest, FindSeries) {
     EXPECT_EQ(r6[1], 7);
     EXPECT_EQ(r6[2], 8);
     EXPECT_EQ(r6[3], 2);
+
+    auto r7 = t.findSeries("abcde-f-p");
+    EXPECT_EQ(r7.size(), 3);
+    EXPECT_EQ(r7[0], 9);
+    EXPECT_EQ(r7[1], 7);
+    EXPECT_EQ(r7[2], 8);
 }
